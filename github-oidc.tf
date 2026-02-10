@@ -65,6 +65,21 @@ resource "aws_iam_role_policy" "github_actions_terraform" {
         Effect   = "Allow"
         Action   = ["sts:GetCallerIdentity"]
         Resource = "*"
+      },
+      {
+        Sid    = "IAMOIDCAndRoleAccess"
+        Effect = "Allow"
+        Action = [
+          "iam:GetOpenIDConnectProvider",
+          "iam:GetRole",
+          "iam:GetRolePolicy",
+          "iam:ListRolePolicies",
+          "iam:ListAttachedRolePolicies"
+        ]
+        Resource = [
+          "arn:aws:iam::595069099430:oidc-provider/token.actions.githubusercontent.com",
+          "arn:aws:iam::595069099430:role/github-actions-terraform-role"
+        ]
       }
     ]
   })
