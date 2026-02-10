@@ -36,7 +36,7 @@ variable "project_name" {
 variable "github_org" {
   description = "GitHub username or organization"
   type        = string
-  default     = "YOUR-GITHUB-USERNAME"
+  default     = "Amine-Jebari"
 }
 
 variable "github_repo" {

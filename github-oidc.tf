@@ -56,7 +56,8 @@ resource "aws_iam_role_policy" "github_actions_terraform" {
           "dynamodb:GetItem",
           "dynamodb:PutItem",
           "dynamodb:DeleteItem",
-          "dynamodb:DescribeTable"
+          "dynamodb:DescribeTable",
+          "dynamodb:DescribeContinuousBackups"
         ]
         Resource = "arn:aws:dynamodb:*:*:table/terraform-state-lock"
       },
