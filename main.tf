@@ -26,6 +26,10 @@ provider "aws" {
 resource "aws_s3_bucket" "demo_bucket" {
   bucket        = "${var.project_name}-${var.environment}-${data.aws_caller_identity.current.account_id}"
   force_destroy = true
+
+  tags = {
+    Name = "Demo Infrastructure Bucket"
+  }
 }
 
 resource "aws_s3_bucket_versioning" "demo_bucket_versioning" {
