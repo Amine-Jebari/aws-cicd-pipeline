@@ -52,12 +52,7 @@ resource "aws_iam_role_policy" "github_actions_terraform" {
       {
         Sid    = "DynamoDBStateLock"
         Effect = "Allow"
-        Action = [
-          "dynamodb:GetItem",
-          "dynamodb:PutItem",
-          "dynamodb:DeleteItem",
-          "dynamodb:Describe*"
-        ]
+        Action   = ["dynamodb:*"]
         Resource = "arn:aws:dynamodb:*:*:table/terraform-state-lock"
       },
       {
